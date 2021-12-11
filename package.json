@@ -1,6 +1,6 @@
 {
   "private": true,
-  "niceName": "untitled",
+  "niceName": "Untitled",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
