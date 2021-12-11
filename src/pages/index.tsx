@@ -1,6 +1,6 @@
-import { NextPage } from 'next'
+import { Page } from 'src/types/page'
 
-const IndexPage: NextPage = () => {
+const IndexPage: Page = () => {
   return (
     <div className="h-screen flex justify-center items-center">
       Hello, world!
