@@ -16,12 +16,6 @@ const nextConfig = {
         destination: '/api/sitemap',
       },
     ]
-    if (process.env.APOLLO_URI) {
-      rewrites.push({
-        source: '/api',
-        destination: process.env.APOLLO_URI,
-      })
-    }
     const maxLength = Math.max(...rewrites.map((rw) => rw.source.length))
     for (const rewrite of rewrites) {
       const source = rewrite.source.padEnd(maxLength)
