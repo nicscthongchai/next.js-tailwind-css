@@ -16,8 +16,10 @@ const _App: NextComponentType<
   const Layout = Component.Layout || NoLayout
 
   useEffect(() => {
-    console.log('ENABLE_ROBOTS', process.env.ENABLE_ROBOTS)
-    if ('serviceWorker' in navigator) {
+    if (
+      'serviceWorker' in navigator &&
+      process.env.NEXT_PUBLIC_USE_SERVICE_WORKER
+    ) {
       window.addEventListener('load', function () {
         navigator.serviceWorker.register('/sw.js')
       })

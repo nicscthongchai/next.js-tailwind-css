@@ -2,7 +2,7 @@ import type { NextApiRequest, NextApiResponse } from 'next'
 import { SitemapStream, streamToPromise } from 'sitemap'
 import { createGzip } from 'zlib'
 
-const hostname = process.env.HOST_NAME || 'http://localhost/'
+const hostname = process.env.HOST_NAME || 'http://localhost:3000/'
 
 let sitemap: Buffer
 
