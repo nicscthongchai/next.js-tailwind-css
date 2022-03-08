@@ -23,6 +23,9 @@ const nextConfig = {
     }
     return rewrites
   },
+  publicRuntimeConfig: {
+    ENABLE_SERVICE_WORKER: process.env.ENABLE_SERVICE_WORKER || '',
+  },
 }
 
 module.exports = nextConfig
