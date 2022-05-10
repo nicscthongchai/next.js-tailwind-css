@@ -1,8 +1,9 @@
 import { NextComponentType } from 'next'
+import { DefaultSeo } from 'next-seo'
 import { AppContext, AppInitialProps, AppProps } from 'next/app'
+import pkg from 'package.json'
 import React, { useEffect } from 'react'
 import NoLayout from 'src/components/Layouts/NoLayout'
-import Title from 'src/components/Title'
 import { Page } from 'src/types/page'
 import 'tailwindcss/tailwind.css'
 
@@ -16,7 +17,6 @@ const _App: NextComponentType<
   const Layout = Component.Layout || NoLayout
 
   useEffect(() => {
-    console.log(process.env.NEXT_PUBLIC_ENABLE_SERVICE_WORKER)
     if (
       'serviceWorker' in navigator &&
       process.env.NEXT_PUBLIC_ENABLE_SERVICE_WORKER
@@ -29,7 +29,7 @@ const _App: NextComponentType<
 
   return (
     <Layout>
-      <Title />
+      <DefaultSeo defaultTitle={pkg.title} />
       <Component {...pageProps} />
     </Layout>
   )

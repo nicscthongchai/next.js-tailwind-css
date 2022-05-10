@@ -1,10 +1,10 @@
-import Title from 'src/components/Title'
+import Meta from 'src/components/Meta'
 import { Page } from 'src/types/page'
 
 const IndexPage: Page = () => {
   return (
     <>
-      <Title>Home</Title>
+      <Meta title="Home" description="A home page description" />
       <div className="h-screen flex flex-col justify-center items-center">
         Hello, world!
       </div>

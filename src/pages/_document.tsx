@@ -16,7 +16,7 @@ const _Document: NextComponentType<
   DocumentProps
 > = () => {
   return (
-    <Html>
+    <Html lang="en-us">
       <Head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link
