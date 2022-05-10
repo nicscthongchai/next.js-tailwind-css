@@ -1,13 +1,13 @@
 /* eslint-disable @next/next/no-page-custom-font */
 import { NextComponentType } from 'next'
 import {
-  Html,
-  Head,
-  Main,
-  NextScript,
   DocumentContext,
   DocumentInitialProps,
   DocumentProps,
+  Head,
+  Html,
+  Main,
+  NextScript,
 } from 'next/document'
 
 const _Document: NextComponentType<

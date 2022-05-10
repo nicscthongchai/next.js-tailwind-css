@@ -1,5 +1,7 @@
-import React from "react";
+import React, { ReactNode } from 'react'
 
-const NoLayout: React.FC = (props) => <>{props.children}</>
+type NoLayoutProps = { children: ReactNode }
+
+const NoLayout: React.FC<NoLayoutProps> = (props) => <>{props.children}</>
 
 export default NoLayout
