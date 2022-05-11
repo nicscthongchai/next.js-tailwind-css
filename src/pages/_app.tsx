@@ -2,7 +2,7 @@ import { NextComponentType } from 'next'
 import { DefaultSeo } from 'next-seo'
 import { AppContext, AppInitialProps, AppProps } from 'next/app'
 import pkg from 'package.json'
-import React, { useEffect } from 'react'
+import { useEffect } from 'react'
 import NoLayout from 'src/components/Layouts/NoLayout'
 import { Page } from 'src/types/page'
 import 'tailwindcss/tailwind.css'
@@ -13,8 +13,6 @@ const _App: NextComponentType<
   AppProps & { Component: Page }
 > = (props) => {
   const { Component, pageProps } = props
-
-  const Layout = Component.Layout || NoLayout
 
   useEffect(() => {
     if (
@@ -27,11 +25,19 @@ const _App: NextComponentType<
     }
   }, [])
 
-  return (
+  const getLayout = Component.getLayout || ((page) => page)
+  const Layout = Component.Layout || NoLayout
+  const appWithLayout = getLayout(
     <Layout>
-      <DefaultSeo defaultTitle={pkg.title} />
       <Component {...pageProps} />
     </Layout>
+  )
+
+  return (
+    <>
+      <DefaultSeo defaultTitle={pkg.title} />
+      {appWithLayout}
+    </>
   )
 }
 
