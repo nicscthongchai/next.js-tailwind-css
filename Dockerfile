@@ -1,19 +1,16 @@
-FROM node:12.22-alpine AS builder
+FROM mhart/alpine-node:16.4.2 AS builder
 WORKDIR /app
 COPY . .
-RUN npm i -g pnpm
-RUN pnpm install --silent
-RUN pnpm build
+RUN npm install --silent
+RUN npm run build
 
-FROM node:12.22-alpine AS modules
+FROM mhart/alpine-node:16.4.2 AS modules
 WORKDIR /app
-RUN npm i -g pnpm
 COPY --from=builder /app/package.json ./package.json
 COPY --from=builder /app/node_modules ./node_modules
-RUN pnpm prune --production
+RUN npm prune --production
 
-
-FROM mhart/alpine-node:12.22
+FROM mhart/alpine-node:16.4.2
 WORKDIR /app
 COPY ./package.json ./package.json
 COPY --from=builder /app/.next ./.next
